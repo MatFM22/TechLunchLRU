@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "login_prueba"
+rootProject.name = "TecLunch"
 include(":app")
  

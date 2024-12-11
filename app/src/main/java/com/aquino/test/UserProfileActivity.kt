@@ -10,6 +10,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.aquino.test.databinding.ActivityUserProfileBinding
 
 class UserProfileActivity : AppCompatActivity() {
+    /*
     private lateinit var binding: ActivityUserProfileBinding
     private lateinit var sharedPreferences: SharedPreferences
 
@@ -34,6 +35,29 @@ class UserProfileActivity : AppCompatActivity() {
             // Clear SharedPreferences (optional)
             sharedPreferences.edit().clear().apply()
 
+            // Redirect to LoginActivity
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+    }
+    */
+
+    private lateinit var binding: ActivityUserProfileBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityUserProfileBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        // Recuperar el nombre del usuario
+        val username = intent.getStringExtra("username") ?: "Usuario Desconocido"
+
+        // Mostrar el nombre del usuario
+        binding.tvUsername.text = "Nombre de Usuario: $username"
+
+        // Logout Button
+        binding.btnLogout.setOnClickListener {
             // Redirect to LoginActivity
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
